@@ -16,8 +16,8 @@ if [ $n_mtl -eq 0 ]; then
     exit 1
 fi
 
-if [ ! -d L1G ]; then
-    mkdir L1G/
+if [ ! -d ../L1G ]; then
+    mkdir ../L1G/
 fi
 
 for mtl in $(find ./ -name 'L*MTL.txt'); do
@@ -27,7 +27,7 @@ for mtl in $(find ./ -name 'L*MTL.txt'); do
     
     if [ "$l1t" == "" ]; then
         echo "$id is not L1T"
-        mv $(dirname $mtl) L1G
+        mv $(dirname $mtl) ../L1G
     else
         echo "$id is L1T"
     fi
