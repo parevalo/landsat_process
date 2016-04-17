@@ -7,14 +7,14 @@ cd /projectnb/landsat/projects/Colombia/ESPA
 img=/projectnb/landsat/projects/Colombia/images
 
 for folder in $(find . -maxdepth 1 -type d -name 'L*'); do
-	# Get folder path and row
-	pr=${folder:5:6}
+    # Get folder path and row
+    pr=${folder:5:6}
 
-	# Check if destination folder already exists and move
-	if [ -d $img/$pr/images/$(basename $folder) ]; then
-		echo "Folder for $(basename $folder) already exists!"
-	else
-		#mv $folder $img/$pr/images
-		echo "Moved $(basename $folder) to $pr"
-	fi
+    # Check if destination folder already exists and move
+    if [ -d $img/$pr/images/$(basename $folder) ]; then
+        echo "Folder for $(basename $folder) already exists!"
+    else
+        #mv $folder $img/$pr/images
+        echo "Moved $(basename $folder) to $pr"
+    fi
 done
