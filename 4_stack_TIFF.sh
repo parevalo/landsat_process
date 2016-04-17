@@ -1,8 +1,9 @@
 #!/bin/bash
 #$ -l h_rt=72:00:00
 #$ -V
-#$ -N landsat_stack
+#$ -N stack_858
 #$ -j y
+#$ -m e
 
 module load gdal/1.10.0
 module load batch_landsat
@@ -22,8 +23,8 @@ fmask="*cfmask.tif"
 
 landsat_stack.py -q -p --files "$sr $fmask" \
     --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 255" \
-    --utm 19 -o "_stack" \
-    --format "ENVI" --co "INTERLEAVE=BIP" --percentile 1 ./
+    -o "_stack" \
+    --format "ENVI" --co "INTERLEAVE=BIP" --max_extent ./
     
 #    --image="/projectnb/landsat/projects/IDS/p012r031/images/LE70120311999188EDC00/LE70120311999188EDC00_stack" ./
     

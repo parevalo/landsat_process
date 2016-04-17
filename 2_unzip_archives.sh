@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -l h_rt=72:00:00
 #$ -V
-#$ -N landsat_unzip
+#$ -N unzip_858
 #$ -j y
 
 if [ -z "$1" ]; then

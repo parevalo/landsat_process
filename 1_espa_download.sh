@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -l h_rt=72:00:00
 #$ -V
-#$ -N download_landsat
+#$ -N dwnl_858
 #$ -j y
 #$ -m e
 

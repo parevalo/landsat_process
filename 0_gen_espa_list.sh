@@ -1,4 +1,6 @@
 #!/bin/bash
+# This version of the script is also including spurious lines from some of the
+# files! (e.g. "Landsat Scene Identifier"
 
 if [ -z "$1" ]; then
     echo "Error - please specify a directory with extraced Landsat archives. Usage:"
@@ -14,8 +16,8 @@ cd $here
 output=./${WRS}_submit.txt
 
 cat ./LSR_LANDSAT_ETM_COMBINED_*.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
-cat ./LSR_LANDSAT_TM_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
-# cat ./LANDSAT_8_28473.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
+#cat ./LSR_LANDSAT_TM_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
+cat ./LSR_LANDSAT_8_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
 
 n=$(cat ./${WRS}_submit.txt | wc -l)
 
