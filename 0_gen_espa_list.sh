@@ -15,7 +15,7 @@ output=./${WRS}_submit.txt
 
 cat ./LSR_LANDSAT_ETM_COMBINED_*.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
 cat ./LSR_LANDSAT_TM_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
-# cat ./LANDSAT_8_28473.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
+cat ./LSR_LANDSAT_8_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
 
 n=$(cat ./${WRS}_submit.txt | wc -l)
 
