@@ -10,6 +10,6 @@ ORDER=$2
 DIR=$3
 
 
-python ~/Scripts/bash/landsat_process/bulk-downloader/download_espa_order.py -e $EMAIL \
+python ~/Scripts/landsat_process/bulk-downloader/download_espa_order.py -e $EMAIL \
 	-o $ORDER -c \
 	-d $DIR
