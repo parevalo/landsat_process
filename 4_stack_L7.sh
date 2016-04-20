@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -l h_rt=72:00:00
 #$ -V
-#$ -N stack_858
+#$ -N stack_L7
 #$ -j y
 #$ -m e
 
@@ -21,11 +21,10 @@ cd $here
 sr="*sr*1.tif *sr*2.tif *sr*3.tif *sr*4.tif *sr*5.tif *sr*7.tif *toa*6.tif"
 fmask="*cfmask.tif"
 
-landsat_stack.py -q -p --files "$sr $fmask" \
+landsat_stack.py -q -p -d "LE*" --files "$sr $fmask" \
     --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 255" \
     -o "_stack" \
     --format "ENVI" --co "INTERLEAVE=BIP" --max_extent ./
     
-#    --image="/projectnb/landsat/projects/IDS/p012r031/images/LE70120311999188EDC00/LE70120311999188EDC00_stack" ./
     
     
