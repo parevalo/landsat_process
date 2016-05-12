@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #$ -l h_rt=72:00:00
 #$ -V
 #$ -N dwnl_multi

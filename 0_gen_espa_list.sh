@@ -1,6 +1,4 @@
 #!/bin/bash
-# This version of the script is also including spurious lines from some of the
-# files! (e.g. "Landsat Scene Identifier"
 
 if [ -z "$1" ]; then
     echo "Error - please specify a directory with extraced Landsat archives. Usage:"
