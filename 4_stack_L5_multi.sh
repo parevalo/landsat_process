@@ -1,4 +1,9 @@
 #!/bin/bash -l
+#$ -l h_rt=72:00:00
+#$ -V
+#$ -N stack_L5_multi
+#$ -j y
+#$ -m e
 
 module load gdal/1.10.0
 module load batch_landsat
@@ -15,11 +20,6 @@ scn_list="003058 003059 004059 007061 009060"  #004057 004058 004061 004062 0050
 rootdir=/projectnb/landsat/projects/Colombia/images
 
 for s in $scn_list; do
-    # Get path and row in short version
-    pt=${s:2:1}
-    rw=${s:4:2}
-    
-    # cd to image folder
     cd $rootdir/$s/images
 
     # Find example image so that the new files have exactly the same extent
@@ -30,8 +30,7 @@ for s in $scn_list; do
 
     # Do the stacking
     
-    qsub -V -j y -b y -m e -N stack_$pt$rw \
-     landsat_stack.py -v -q -p -d "LT5$s*" --files "$sr $fmask" \
+    landsat_stack.py -v -q -p -d "LT5$s*" --files "$sr $fmask" \
         --ndv "-9999; -9999; -9999; -9999; -9999; -9999; -9999; 255" \
         -o "_stack" \
         --format "ENVI" --co "INTERLEAVE=BIP" --image="$img_path" ./ 
