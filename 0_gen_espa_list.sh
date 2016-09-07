@@ -1,8 +1,9 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-    echo "Error - please specify a directory with extraced Landsat archives. Usage:"
-    echo "    $0 <directory>"
+    echo "Error - please specify a directory with extracted Landsat archives 
+    and the short path-row number you want to use. Usage:"
+    echo "    $0 <directory> <ptrw>"
     exit 1
 fi
 
