@@ -48,6 +48,8 @@ Create stack of original bands plus Fmask result <br>
 <br>
 <br>
 
+### Additional scripts: 
+
 #### 5_TC_Transform
 Output BGW stack <br>
 *Band order:* Brightness, Greenness, Wetness
@@ -60,7 +62,8 @@ Create stack of original bands, TC, and fmask result <br>
 <br>
 <br>
 
-### Additional scripts: 
+
+
 #### clean_remove_cloudy.sh
 Moves images where percentage of image covered by clouds and cloud shadows is greater than a set threshold to ```./images/cloudy/``` directory.
 <br>
