@@ -2,8 +2,8 @@
 
 if [ -z "$1" ]; then
     echo "Error - please specify a directory with extracted Landsat archives 
-    and the short path-row number you want to use. Usage:"
-    echo "    $0 <directory> <ptrw>"
+    and the prefix you want to use (e.g path-row). Usage:"
+    echo "    $0 <directory> <prefix>"
     exit 1
 fi
 
@@ -14,9 +14,14 @@ cd $here
 
 output=./${WRS}_submit.txt
 
-cat ./LSR_LANDSAT_ETM_COMBINED_*.txt | awk -F ',' 'NR > 1 { print $2 }' > $output
-cat ./LSR_LANDSAT_TM_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
-cat ./LSR_LANDSAT_8_*.txt | awk -F ',' 'NR > 1 { print $2 }' >> $output
+# This prevents incorrect lines being considered when
+# there is more than one file for the same sensor in
+# the folder
+
+for lsrfile in $(find ./ -name 'LSR_LANDSAT_*.txt'); do
+    cat $lsrfile | awk -F ',' 'NR > 1 { print $2 }' >> $output
+
+done
 
 n=$(cat ./${WRS}_submit.txt | wc -l)
 
