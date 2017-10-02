@@ -15,4 +15,4 @@ USR=$4
 PWD=$5
 
 python ~/Scripts/landsat_process/espa-bulk-downloader/download_espa_order.py -e $EMAIL \
-	-o $ORDER -d $DIR -u $USR -p $PWD
+	-o $ORDER -d $DIR -u $USR -p $PWD -c
