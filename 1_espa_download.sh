@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#$ -l h_rt=72:00:00
+#$ -l h_rt=120:00:00
 #$ -V
 #$ -N dwnl_multi
 #$ -j y
